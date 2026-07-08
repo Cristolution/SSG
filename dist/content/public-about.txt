@@ -1,0 +1,34 @@
+# About SSG 2
+
+An encrypted static site generator that keeps your notes private by design.
+
+## The Problem
+
+Most note-taking apps sync your data to the cloud in plaintext. That means:
+
+- The hosting company can read your notes
+- If there's a breach, your notes are exposed
+- You have to trust the platform with your most sensitive information
+
+## The Solution
+
+SSG 2 inverts the trust model:
+
+1. **Encryption happens locally** — on your machine, before anything is uploaded
+2. **Only ciphertext is published** — your notes are scrambled into unreadable blobs
+3. **Decryption happens in-browser** — using the Web Crypto API, passwords never leave your device
+4. **The server knows nothing** — GitHub Pages only serves static encrypted files
+
+## How It Feels
+
+- Write in Obsidian or any Markdown editor
+- Tag notes by folder — each folder gets its own password
+- Run `npm run build` — notes are encrypted and compiled locally
+- Push to GitHub Pages — done
+
+## Who It's For
+
+- Writers with sensitive drafts
+- Developers with private notes
+- Researchers with confidential findings
+- Anyone who wants to publish a personal site without surrendering their data

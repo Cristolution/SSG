@@ -1,0 +1,20 @@
+# Welcome to SSG 2!
+
+This is a **completely open** page — no password required.
+
+## What is this?
+
+SSG 2 is a local-first encrypted static site generator. Your notes live in Markdown, get encrypted on your machine, and only the encrypted blobs are ever published.
+
+## Features
+
+- **100% local encryption** — your raw notes never leave your computer
+- **AES-256-GCM** — military-grade encryption
+- **Client-side decryption** — browser decrypts in-memory using Web Crypto API
+- **Zero trust hosting** — GitHub Pages only sees ciphertext
+
+## Try it out
+
+Navigate to the **design** or **projects** sections in the sidebar — those are password-protected.
+
+> 🔓 This page is open to everyone.
