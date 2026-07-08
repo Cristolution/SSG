@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Raw vault (never commit your actual notes)
+vault/
+
+# Password file (contains secrets — reference passwords.md.example)
+passwords.md
+
+# Claude session / skill data (never commit)
+.claude/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp

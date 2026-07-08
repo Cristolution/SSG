@@ -1,0 +1,15 @@
+{
+  "name": "ssg-2",
+  "version": "1.0.0",
+  "description": "Local-first encrypted static site generator",
+  "type": "module",
+  "main": "cli/index.js",
+  "scripts": {
+    "build": "node cli/index.js --vault ./vault --passwords ./vault/passwords.md --dist ./dist"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {}
+}
