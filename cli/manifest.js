@@ -12,7 +12,7 @@ export function buildManifest(compiled) {
       tags: item.frontmatter.tags,
       folder: item.frontmatter.folder,
       description: item.frontmatter.description,
-      encrypted_file_path: `/content/${item.outputFilename}`,
+      encrypted_file_path: `content/${item.outputFilename}`,
       open: item.isOpen,
     };
   }

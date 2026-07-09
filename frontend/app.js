@@ -12,6 +12,11 @@ const TAG_LENGTH = 16;
 const PBKDF2_ITERATIONS = 100000;
 const PBKDF2_HASH = 'SHA-256';
 
+// Strip leading slash for relative fetch compatibility
+function assetPath(p) {
+  return p.replace(/^\//, '');
+}
+
 async function deriveKey(password, salt) {
   const keyMaterial = await crypto.subtle.importKey(
     'raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']
@@ -338,7 +343,7 @@ async function navigateTo(route) {
   // Open pages — no decryption needed
   if (isOpen) {
     try {
-      const plaintext = await fetch(routeInfo.encrypted_file_path).then(r => r.text());
+      const plaintext = await fetch(assetPath(routeInfo.encrypted_file_path)).then(r => r.text());
       renderPage(route, routeInfo, plaintext);
     } catch (e) {
       content.innerHTML = `<p class="error">Failed to load content.</p>`;
@@ -350,7 +355,7 @@ async function navigateTo(route) {
   const cachedPassword = cacheGet(folder);
 
   try {
-    const encryptedContent = await fetch(routeInfo.encrypted_file_path).then(r => r.text());
+    const encryptedContent = await fetch(assetPath(routeInfo.encrypted_file_path)).then(r => r.text());
 
     if (cachedPassword) {
       try {

@@ -9,7 +9,7 @@
       ],
       "folder": "design",
       "description": "",
-      "encrypted_file_path": "/content/design-color-system.enc",
+      "encrypted_file_path": "content/design-color-system.enc",
       "open": false
     },
     "/design/neo-brutalism": {
@@ -21,7 +21,7 @@
       ],
       "folder": "design",
       "description": "",
-      "encrypted_file_path": "/content/design-neo-brutalism.enc",
+      "encrypted_file_path": "content/design-neo-brutalism.enc",
       "open": false
     },
     "/design/new-laravel-feat": {
@@ -32,7 +32,7 @@
       ],
       "folder": "design",
       "description": "",
-      "encrypted_file_path": "/content/design-new-laravel-feat.enc",
+      "encrypted_file_path": "content/design-new-laravel-feat.enc",
       "open": false
     },
     "/projects/api-documentation": {
@@ -44,7 +44,7 @@
       ],
       "folder": "projects",
       "description": "",
-      "encrypted_file_path": "/content/projects-api-documentation.enc",
+      "encrypted_file_path": "content/projects-api-documentation.enc",
       "open": false
     },
     "/projects/laravel-app": {
@@ -56,7 +56,7 @@
       ],
       "folder": "projects",
       "description": "",
-      "encrypted_file_path": "/content/projects-laravel-app.enc",
+      "encrypted_file_path": "content/projects-laravel-app.enc",
       "open": false
     },
     "/public/about": {
@@ -67,7 +67,7 @@
       ],
       "folder": "public",
       "description": "",
-      "encrypted_file_path": "/content/public-about.txt",
+      "encrypted_file_path": "content/public-about.txt",
       "open": true
     },
     "/public/welcome": {
@@ -78,7 +78,7 @@
       ],
       "folder": "public",
       "description": "",
-      "encrypted_file_path": "/content/public-welcome.txt",
+      "encrypted_file_path": "content/public-welcome.txt",
       "open": true
     }
   }
