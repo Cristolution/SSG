@@ -5,7 +5,7 @@
   "type": "module",
   "main": "cli/index.js",
   "scripts": {
-    "build": "node cli/index.js --vault ./vault --passwords ./vault/passwords.md --dist ./dist"
+    "build": "node cli/index.js --vault ./vault --passwords ./vault/passwords.md --dist ./docs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

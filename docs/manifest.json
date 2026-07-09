@@ -1,0 +1,85 @@
+{
+  "routes": {
+    "/design/color-system": {
+      "title": "Color System Reference",
+      "tags": [
+        "css",
+        "colors",
+        "design-system"
+      ],
+      "folder": "design",
+      "description": "",
+      "encrypted_file_path": "content/design-color-system.enc",
+      "open": false
+    },
+    "/design/neo-brutalism": {
+      "title": "Neo-Brutalist Design System",
+      "tags": [
+        "ui",
+        "ux",
+        "css"
+      ],
+      "folder": "design",
+      "description": "",
+      "encrypted_file_path": "content/design-neo-brutalism.enc",
+      "open": false
+    },
+    "/design/new-laravel-feat": {
+      "title": "New Laravel Feature",
+      "tags": [
+        "laravel",
+        "feature"
+      ],
+      "folder": "design",
+      "description": "",
+      "encrypted_file_path": "content/design-new-laravel-feat.enc",
+      "open": false
+    },
+    "/projects/api-documentation": {
+      "title": "API Documentation",
+      "tags": [
+        "api",
+        "backend",
+        "documentation"
+      ],
+      "folder": "projects",
+      "description": "",
+      "encrypted_file_path": "content/projects-api-documentation.enc",
+      "open": false
+    },
+    "/projects/laravel-app": {
+      "title": "Laravel App Notes",
+      "tags": [
+        "laravel",
+        "php",
+        "backend"
+      ],
+      "folder": "projects",
+      "description": "",
+      "encrypted_file_path": "content/projects-laravel-app.enc",
+      "open": false
+    },
+    "/public/about": {
+      "title": "About SSG 2",
+      "tags": [
+        "about",
+        "system"
+      ],
+      "folder": "public",
+      "description": "",
+      "encrypted_file_path": "content/public-about.txt",
+      "open": true
+    },
+    "/public/welcome": {
+      "title": "Welcome",
+      "tags": [
+        "intro",
+        "public"
+      ],
+      "folder": "public",
+      "description": "",
+      "encrypted_file_path": "content/public-welcome.txt",
+      "open": true
+    }
+  }
+}

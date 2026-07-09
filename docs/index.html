@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSG 2 — Encrypted Notes</title>
+  <meta name="description" content="Locally encrypted static site — your notes never leave your machine." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230f0f0f'/><rect x='8' y='8' width='16' height='16' fill='%23d94f00'/><rect x='12' y='12' width='8' height='8' fill='%230f0f0f'/></svg>" />
+</head>
+<body>
+  <div id="app">
+
+    <!-- ── Sidebar ──────────────────────────────────────── -->
+    <aside id="sidebar">
+      <header>
+        <a href="#/" class="brand">
+          <span class="brand-mark">SS</span>
+          <span class="brand-name">SSG 2</span>
+        </a>
+        <p class="brand-sub">Encrypted · Local · Private</p>
+      </header>
+
+      <nav id="nav-links" aria-label="Site navigation">
+        <p class="nav-loading">Loading...</p>
+      </nav>
+
+      <footer>
+        <p>Encrypted with AES-256-GCM</p>
+        <p>Built with Web Crypto API</p>
+      </footer>
+    </aside>
+
+    <!-- ── Main Content ─────────────────────────────────── -->
+    <main id="content">
+      <div id="page-content">
+        <p class="loading">Loading...</p>
+      </div>
+    </main>
+
+    <!-- ── Password Modal ────────────────────────────────── -->
+    <div id="password-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <div class="modal-box">
+        <div class="modal-icon">🔐</div>
+        <h2 id="modal-title">Unlock Page</h2>
+        <p class="modal-folder" id="modal-context"></p>
+        <label for="password-input">Password</label>
+        <input
+          type="password"
+          id="password-input"
+          placeholder="Enter folder password"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+        />
+        <div class="modal-actions">
+          <button id="password-submit" class="btn-primary">Decrypt</button>
+          <button id="password-cancel" class="btn-secondary">Cancel</button>
+        </div>
+        <p id="password-error"></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
