@@ -91,6 +91,24 @@ html, body {
 #sidebar::-webkit-scrollbar-track { background: var(--sidebar-bg); }
 #sidebar::-webkit-scrollbar-thumb { background: var(--sidebar-border); }
 
+/* Sidebar resize handle */
+#sidebar-resize {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  cursor: col-resize;
+  background: transparent;
+  z-index: 10;
+  transition: background 0.15s;
+}
+
+#sidebar-resize:hover,
+#sidebar-resize.dragging {
+  background: var(--accent);
+}
+
 /* Sidebar header / brand */
 #sidebar header {
   padding: 1.75rem 1.5rem 1.25rem;
@@ -152,6 +170,34 @@ html, body {
   text-transform: uppercase;
   color: var(--sidebar-muted);
   padding: 1.25rem 1.5rem 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.12s;
+}
+
+#sidebar .nav-section:hover {
+  color: var(--sidebar-link);
+}
+
+#sidebar .nav-section .collapse-icon {
+  font-size: 0.6rem;
+  opacity: 0.5;
+  transition: transform 0.2s ease;
+}
+
+#sidebar .nav-section.collapsed .collapse-icon {
+  transform: rotate(-90deg);
+}
+
+#sidebar .nav-section + .nav-group {
+  display: block;
+}
+
+#sidebar .nav-section.collapsed + .nav-group {
+  display: none;
 }
 
 #sidebar .nav-section:first-of-type {
@@ -241,8 +287,17 @@ html, body {
 #content {
   flex: 1;
   padding: 3.5rem 4rem;
-  max-width: var(--content-max);
+  max-width: calc(100vw - var(--sidebar-width));
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#page-content {
+  width: 100%;
+  max-width: var(--content-max);
+  animation: fadeIn 0.2s ease-out;
 }
 
 /* ── Page Content Typography ─────────────────────────────────── */
@@ -449,7 +504,7 @@ html, body {
 }
 
 .welcome p {
-  color: #c4c0b8;
+  color: #e0ddd6;
   font-size: 1rem;
   margin-bottom: 0;
 }

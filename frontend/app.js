@@ -224,7 +224,67 @@ async function attemptDecrypt() {
   }
 }
 
-// ─── Sidebar Builder ─────────────────────────────────────────────────────────
+// ─── Sidebar Resize ──────────────────────────────────────────────────────────
+
+function initResize() {
+  const handle = $('#sidebar-resize');
+  if (!handle) return;
+
+  let dragging = false;
+  let startX = 0;
+  let startWidth = 0;
+
+  handle.addEventListener('mousedown', (e) => {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = document.getElementById('sidebar').offsetWidth;
+    handle.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const delta = e.clientX - startX;
+    const newWidth = Math.min(Math.max(startWidth + delta, 180), 480);
+    document.getElementById('sidebar').style.width = newWidth + 'px';
+    document.getElementById('sidebar').style.minWidth = newWidth + 'px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  });
+}
+
+// ─── Sidebar Collapse ───────────────────────────────────────────────────────
+
+function initCollapse() {
+  const nav = $('#nav-links');
+  if (!nav) return;
+
+  nav.addEventListener('click', (e) => {
+    const section = e.target.closest('.nav-section');
+    if (!section) return;
+
+    const isCollapsed = section.classList.toggle('collapsed');
+    const folder = section.dataset.folder;
+    if (folder) {
+      sessionStorage.setItem(`ssg2_collapse_${folder}`, isCollapsed);
+    }
+  });
+
+  // Restore collapsed state
+  document.querySelectorAll('.nav-section').forEach(section => {
+    const folder = section.dataset.folder;
+    if (folder && sessionStorage.getItem(`ssg2_collapse_${folder}`) === 'true') {
+      section.classList.add('collapsed');
+    }
+  });
+}
 
 function buildSidebar() {
   const nav = $('#nav-links');
@@ -263,8 +323,12 @@ function buildSidebar() {
 
     const section = document.createElement('p');
     section.className = 'nav-section';
-    section.textContent = label;
+    section.dataset.folder = folder;
+    section.innerHTML = `<span>${label}</span><span class="collapse-icon">▾</span>`;
     nav.appendChild(section);
+
+    const group = document.createElement('div');
+    group.className = 'nav-group';
 
     for (const { route, info } of items) {
       const a = document.createElement('a');
@@ -282,8 +346,10 @@ function buildSidebar() {
       }
 
       if (route === currentRoute) a.classList.add('active');
-      nav.appendChild(a);
+      group.appendChild(a);
     }
+
+    nav.appendChild(group);
   }
 }
 
@@ -400,6 +466,8 @@ async function init() {
   }
 
   buildSidebar();
+  initResize();
+  initCollapse();
 
   // Always call handleRoute — Playwright's page.goto(url-with-hash) does NOT fire
   // hashchange on initial navigation, so we need an explicit call after manifest loads.
